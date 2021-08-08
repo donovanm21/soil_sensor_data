@@ -23,8 +23,10 @@ router.get('/:data', (req, res) => {
     try {
         if(req.params.data != null && req.params.data != '') {
             soilData = req.params.data
+            res.send('OK')
         } else {
             soilData = 0
+            res.send('No Value')
         }
     } catch {
         res.send('There was an error')
