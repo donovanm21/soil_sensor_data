@@ -62,7 +62,7 @@ Once updated with your details, verify the sketch and upload it to the NodeMCU. 
 
 The simplest way to deploy the API is via the below docker command. This will pull the latest image from docker hub and deploy the API on the host you run the command on. Ensure that docker is install, for this you can follow the docker setup instructions online.
 
-NOTE: ensure no other service is using port 3000 on the same host. If so, adjust the 300X:3000 to another port number to avoid conflicts.
+NOTE: ensure no other service is using port 3000 on the same host. If so, adjust the 300X:3000 to another port number to avoid conflicts. Make sure you pass the API_URL variable when deploying the container. This is how the index receives the current value. URL have to include the port and /soildata/ 
 
 ``` bash
 docker run -d --name my_soil_api -p 3000:3000 -e API_URL=http://my.api.com:3000/soildata/ donovanm21/iotsoilsensorapi
