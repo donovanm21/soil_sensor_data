@@ -24,7 +24,7 @@ const char *ssid = "My_WiFi";
 const char *password = "mypassword";
 
 //################# API Details ####################
-String URL = "http://my.api.com:3000"; // IP or Hostname for API Example: https://api.mydomain.com:3000/
+String URL = "http://my.api.com:3000/update/"; // IP or Hostname for API Example: https://api.mydomain.com:3000/
 String getData, Link; // Set up vars for Link and getData
 int sensorValue = 0; // Initial sensor value
 

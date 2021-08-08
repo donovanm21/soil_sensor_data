@@ -26,7 +26,8 @@ router.get('/', (req, res) => {
 })
 
 router.get('/soildata', (req, res) => {
-    res.send(soilData);
+    console.log(soilData)
+    res.send(soilData)
 })
 
 router.get('/update/:soilReading', (req, res) => {
