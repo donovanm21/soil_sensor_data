@@ -6,11 +6,11 @@ This is a basic project / starter project for retrieving soil moisture sensor da
 
 Standard NodeMCU with a ESP8266 controller
 
-<img src="https://bookings-demo.ydev.co.za/includes/img/github/signin.png" />
+<img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/nodemcu.png" />
 
 BMT Soil Moister Sensor Kit
 
-<img src="https://bookings-demo.ydev.co.za/includes/img/github/signin.png" />
+<img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/soil_sensor.png" />
 
 ## Pre-Setup
 
