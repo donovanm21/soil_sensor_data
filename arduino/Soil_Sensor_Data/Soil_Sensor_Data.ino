@@ -1,7 +1,7 @@
 /* -----------------------------------------------------------------------------
   - Project: IoT Soil Data Capture to API
   - Author:  Donovan Muskett-Yetts
-  - Github: https://github.co.za/donovanm21
+  - Github: https://github.com/donovanm21/soil_sensor_data
   - Date:  08/09/2021
    -----------------------------------------------------------------------------
   This code was created to capture sensor data for a soil moisture level sensor

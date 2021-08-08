@@ -4,7 +4,7 @@ This is a basic project / starter project for retrieving soil moisture sensor da
 
 ## Components Used
 
-Standard NodeMCU with a ESP8266 controller
+Standard NodeMCU or most ESP8266 controller.
 
 <img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/nodemcu.png" />
 
@@ -43,7 +43,7 @@ Use the below table to connect the sensor to the nodemcu / esp8266 controller.
 Using the Arduino IDE you can open up the Soil_Sensor_Data.ino sketch included in the repo files. Update the wireless detail in the sketch with your wireless SSID (Name of wireless, need to be exactly the same) and the password for your wireless.
 
 ``` bash
-//################ WiFi Details #################
+################ WiFi Details #################
 /* Set Wireless Credentials. */
 const char *ssid = "My_WiFi";
 const char *password = "mypassword";
