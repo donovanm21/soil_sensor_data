@@ -14,12 +14,44 @@ BMT Soil Moister Sensor Kit
 
 ## Pre-Setup
 
-Please ensure you have a .env file in the root directory with the below included for the application to work.
+Ensure you have Arduino IDE download and installed onto your machine
+
+* https://www.arduino.cc/en/software
+
+Once installed, make sure you have the ESP8266 board manager library installed to communicate with the NodeMCU using the Arduino IDE
+
+* https://github.com/esp8266/Arduino
+
+Download the repo to your machine. You can grab the latest release as well which contains all the files need.
+
+* https://latestrelease.com
+
+Once downloaded and unzipped, please ensure you have a .env file in the root directory with the below included for the application to work.
 
 ``` php
 # Ensure this matches your IP or URL where the API will be hosted.
 API_URL=https://your.api.com:3000/
 ```
+## Wiring
+
+Use the below table to connect the sensor to the nodemcu / esp8266 controller.
+
+<img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/wiring.png" />
+
+## NodeMCU flashing
+
+Using the Arduino IDE you can open up the Soil_Sensor_Data.ino sketch included in the repo files. Update the wireless detail in the sketch with your wireless SSID (Name of wireless, need to be exactly the same) and the password for your wireless.
+
+``` bash
+//################ WiFi Details #################
+/* Set Wireless Credentials. */
+const char *ssid = "My_WiFi";
+const char *password = "mypassword";
+```
+
+Once updated with your details, verify the sketch and upload it to the NodeMCU. Once done, open up the the Serial monitor and confirm the you see the confirmation that it connected to the wireless and successfully received an IP. After that you will start seeing the sensor values being logged out in the serial console.
+
+<img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/wifi.png" />
 
 ## Setup - Docker Image
 
