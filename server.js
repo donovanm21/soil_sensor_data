@@ -16,4 +16,4 @@ app.use(express.static('public'))
 
 app.use('/', indexRouter)
 
-app.listen(process.env.PORT || 3001)
+app.listen(process.env.PORT || 3000)

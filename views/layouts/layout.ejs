@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Document</title>
+    <title>IoT Soil Sensor Monitor</title>
 </head>
 <body>
     <%- body %>
-
 <script>
-setInterval(function updateData() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-     document.getElementById("soildata").innerHTML = this.response;
-    }
-  };
-  xhttp.open("GET", "http://192.168.33.10:3060/soildata/", true);
-  xhttp.send();
-}, 2000)
-updateData()
+    setInterval(function updateData() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("soildata").innerHTML = this.response;
+        }
+        };
+        xhttp.open("GET", "<%= apiURL %>", true);
+        xhttp.send();
+    }, 2000)
+    updateData()
 </script>
 </body>
 </html>

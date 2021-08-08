@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+
 const express = require('express')
 const router = express.Router()
 
@@ -7,11 +11,13 @@ router.get('/', (req, res) => {
     try {
         if(soilData != null && soilData != '') {
             res.render('soil/index', {
-                soilData : soilData
+                soilData : soilData,
+                apiURL: process.env.API_URL
             })
         } else {
             res.render('soil/index', {
-                soilData : 0
+                soilData : 0,
+                apiURL: process.env.API_URL
             })
         }
     } catch {
