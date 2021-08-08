@@ -10,13 +10,15 @@ This is a basic project / starter project for retrieving soil moisture sensor da
 Please ensure you have a .env file in the root directory with the below included for the application to work.
 
 ``` php
-API_URL=https://your.api.com:3000/ 
+API_URL=https://your.api.com:3000/ #Ensure this matches your IP or URL where the API will be hosted.
 
 ```
 
-
 # Setup - Docker Image
 
+``` bash
+docker run -d --name my_soil_api -p 3000:3000 donovanm21/soilapi
+```
 
 # Setup - Building the Docker Image
 
