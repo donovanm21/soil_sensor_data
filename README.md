@@ -1,10 +1,10 @@
 # IoT Soil Moisture Sensor Data Collection
 
-This is a basic project / starter project for retrieving soil moisture sensor data from a NodeMCU and a soil moisture sensor. The data from the NodeMCU is sent to an API which is updated and shown on a web application. This is a starter template and can be adapted for varios use cases with multiple sensors and endpoints to capture data and show live data with in a web application.
+This is a basic project / starter project for retrieving soil moisture sensor data from a NodeMCU and a soil moisture sensor. The data from the NodeMCU is sent to an API which is updated and shown on a web application. This is a starter template and can be adapted for various use cases with multiple sensors and endpoints to capture data and show live data with in a web application.
 
 ## Components Used
 
-Standard NodeMCU or most ESP8266 controller.
+Standard NodeMCU with a ESP8266 controller
 
 <img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/nodemcu.png" />
 
@@ -40,16 +40,21 @@ Use the below table to connect the sensor to the nodemcu / esp8266 controller.
 
 ## NodeMCU flashing
 
-Using the Arduino IDE you can open up the Soil_Sensor_Data.ino sketch included in the repo files. Update the wireless detail in the sketch with your wireless SSID (Name of wireless, need to be exactly the same) and the password for your wireless.
+Using the Arduino IDE you can open up the Soil_Sensor_Data.ino sketch included in the repo files. Update the wireless detail in the sketch with your wireless SSID (Name of wireless, need to be exactly the same) and the password for your wireless. 
+
+The API details need to be updated to match your API url including the port and /update/ 
 
 ``` bash
 ################ WiFi Details #################
 /* Set Wireless Credentials. */
 const char *ssid = "My_WiFi";
 const char *password = "mypassword";
+
+################# API Details ####################
+String URL = "http://my.api.com:3000/update/";
 ```
 
-Once updated with your details, verify the sketch and upload it to the NodeMCU. Once done, open up the the Serial monitor and confirm the you see the confirmation that it connected to the wireless and successfully received an IP. After that you will start seeing the sensor values being logged out in the serial console.
+Once updated with your details, verify the sketch and upload it to the NodeMCU. Once done, open up the the Serial monitor and confirm the you see the confirmation that it connected to the wireless and successfully received an IP. After that you will start seeing the sensor values being logged out in the serial console. If you see values in the serial monitor you know everything is working fine and can continue with the API deployment.
 
 <img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/wifi.png" />
 
@@ -60,7 +65,7 @@ The simplest way to deploy the API is via the below docker command. This will pu
 NOTE: ensure no other service is using port 3000 on the same host. If so, adjust the 300X:3000 to another port number to avoid conflicts.
 
 ``` bash
-docker run -d --name my_soil_api -p 3000:3000 donovanm21/soilapi
+docker run -d --name my_soil_api -p 3000:3000 donovanm21/iotsoilsensorapi
 ```
 Once deployed, you can should be able to access the main index page using the http://ipaddress:3000 or http://hostname.com:3000 you will specify the port use when deploying the docker image, if you changes the port, use this port in the URL and .env file for the application.
 
@@ -74,10 +79,16 @@ git clone https://github.com/donovanm21/soil_sensor_data.git
 # Change to the newly create directory
 cd soil_sensor_data
 # Build the docker image
-docker build -t mydockerimage:latest .
+docker build -t mydockerimage .
 # Deploy the docker image
 docker run -d --name my_soil_api -p 3000:3000 mydockerimage:latest
 ```
+
+## Successful API Deployment
+
+If all went well and the NodeMCU is sending the sensor data to the API you will see the below view when you access the web application. The sensor value will update every 2 seconds.
+
+<img src="https://raw.githubusercontent.com/donovanm21/soil_sensor_data/main/files/index.png" />
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.

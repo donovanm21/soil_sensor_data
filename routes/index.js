@@ -29,7 +29,7 @@ router.get('/soildata', (req, res) => {
     res.send(soilData);
 })
 
-router.get('/:soilReading', (req, res) => {
+router.get('/update/:soilReading', (req, res) => {
     try {
         if(req.params.soilReading != null && req.params.soilReading != '') {
             soilData = req.params.soilReading
