@@ -19,6 +19,10 @@ router.get('/', (req, res) => {
     }
 })
 
+router.get('/soildata', (req, res) => {
+    res.send(soilData);
+})
+
 router.get('/:soilReading', (req, res) => {
     try {
         if(req.params.soilReading != null && req.params.soilReading != '') {
