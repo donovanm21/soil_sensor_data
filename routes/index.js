@@ -19,10 +19,10 @@ router.get('/', (req, res) => {
     }
 })
 
-router.get('/:data', (req, res) => {
+router.get('/:soilReading', (req, res) => {
     try {
-        if(req.params.data != null && req.params.data != '') {
-            soilData = req.params.data
+        if(req.params.soilReading != null && req.params.soilReading != '') {
+            soilData = req.params.soilReading
             res.send('OK')
         } else {
             soilData = 0
